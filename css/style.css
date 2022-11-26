@@ -1,0 +1,501 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  overflow: hidden;
+  background-color: white;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img[src="#"] {display: none;}
+
+#container {
+  width: 1080px;
+  height: 100%;
+  left: -360px;
+  position: relative;
+  overflow: hidden;
+  background: #ccc;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+}
+
+.view-box {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  display: inline-block;
+}
+
+#settings {
+  left: 0px;
+}
+
+#records {
+  left: 720px;
+  background: black;
+}
+
+#background {
+  left: 360px;
+  background-color: black;
+  transform: rotate(0deg);
+  -webkit-transition: transform 0.6s; /* Safari */
+  transition: transform 0.6s;
+}
+
+#background[data-display=h] {
+transform: rotate(90deg);
+-webkit-transition: transform 0.6s; /* Safari */
+  transition: transform 0.6s;
+}
+
+#digital-watch-bg{
+  position: absolute;
+  width: 100%;
+  height: 250px;
+background-color: #000;
+box-shadow: 0px 1px 7px 2px rgba(0,0,0,0.4);
+}
+#components-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#touch-effect {
+  position: absolute;
+  background-color: orange;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: effect 0.4s;
+  animation: effect 0.4s;
+  display: none;
+}
+
+@keyframes effect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+      opacity: 0;
+}
+}
+
+#digital-watch {
+  margin-top: 5px;
+  width: 360px;
+  height: 110px;
+  text-align: center;
+}
+
+#digital-watch-bg[data-state="watch"] #digital-watch {
+  margin-top: 40px;
+}
+
+#digital-watch-bg[data-state="counter"] #digital-watch {
+  margin-top: 5px;
+}
+
+#digital-hour {
+  text-align: right;
+  position: absolute;
+  width: 100px;
+  left: 20px;
+}
+
+#digital-colon1 {
+  position: absolute;
+  left: 125px;
+}
+
+#digital-colon2 {
+  position: absolute;
+  left: 220px;
+}
+
+#digital-minute{
+  text-align: center;
+  width: 90px;
+  left: 135px;
+  position: absolute;
+}
+
+#digital-second{
+  text-align: left;
+  width: 100px;
+  left: 235px;
+  position: absolute;
+}
+
+#digital-date>div {
+  display: inline-block;
+  text-align: center;
+}
+
+#digital-time img{
+  height: 60px;
+}
+
+#digital-date img{
+  height: 33px;
+}
+
+#digital-info img{
+  height: 50px;
+}
+
+#text-swatch {
+  position: absolute;
+  left: 75px;
+  top: 255px;
+  width: 240px;
+  height: 60px;
+  color: yellowgreen;
+  text-align: center;
+}
+
+#text-swatch-minute {
+  width: 60px;
+  height: 48px;
+  margin-top: 6px;
+  line-height: 48px;
+  font-size: 50px;
+  float: left;
+}
+
+#text-swatch-colon {
+  width: 15px;
+  height: 48px;
+  margin-top: 6px;
+  float: left;
+  font-size: 36px;
+}
+
+#text-swatch-second {
+  width: 60px;
+  height: 48px;
+  margin-top: 6px;
+  line-height: 48px;
+  font-size: 50px;
+  float: left;
+}
+
+#text-swatch-dot {
+  width: 15px;
+  height: 48px;
+  margin-top: 6px;
+  float: left;
+  font-size: 36px;
+}
+
+#text-swatch-msecond {
+  width: 60px;
+  height: 48px;
+  margin-top: 6px;
+  line-height: 48px;
+  font-size: 50px;
+  float: left;
+}
+
+#stopwatch {
+  width: 100%;
+  height: 100%;
+  background-color: #222;    
+}
+
+#lock-icon {
+  width: 360px;
+  height: 50px;
+  margin: auto;
+  margin-top: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 50px;
+}
+
+#lock-icon[data-state=lock] {
+  background-image: url(./lock.png);
+}
+
+#lock-icon[data-state=unlock] {
+  background-image: url(./unlock.png);
+}
+
+/* counter */
+#digital-counter {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#digital-watch-bg[data-state="watch"] #digital-counter {
+  display: none;
+}
+
+.counter-box {
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  background: #222;
+}
+
+.counter-box img {
+  height: 30px;
+  margin-top: 5px;
+}
+
+/* onoff switch */
+.onoffswitch {
+  margin: 23px auto;
+  position: relative; width: 220px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 1px solid #d74c45; border-radius: 50px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 45px; padding: 0; line-height: 45px;
+  font-size: 25px; color: white; font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  padding-left: 25px;
+  background-color: #f9534a; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+  padding-right: 25px;
+  background-color: #EEEEEE; color: #999999;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 55px; margin: -2.5px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 181px;
+  border: 1px solid #d74c45; border-radius: 50px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
+
+.onoffswitch-guide {
+  position: absolute;
+  top: 240px;
+  left: 90px;
+  color: #c72f2f;
+}
+
+/* my button */
+.myButton {
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+  border-radius: 30px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 25px;
+  padding: 10px 31px;
+  text-decoration: none;
+}
+
+.myButton:active {
+  position:relative;
+  top:2px;
+}
+
+.button-box {
+  margin: auto;
+  width: 170px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.button-box:last-child {
+  margin-bottom: 100px;
+}
+
+.button-record-reset {
+  background-color: #f9534a;
+  border: 1px solid #d74c45;
+  text-shadow: 0px 1px 0px #d74c45;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button-help {
+  background-color: #2ecc71;
+  border: 1px solid #18ab29;
+  text-shadow: 0px 1px 0px #18ab29;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#setting-counter .onoffswitch-inner:before {
+  content: "Counter On";
+}
+
+#setting-counter .onoffswitch-inner:after {
+  content: "Counter Off";
+}
+
+/* hourmode */
+#setting-hourmode .onoffswitch-inner:before {
+  content: "12 Hour";
+}
+
+#setting-hourmode .onoffswitch-inner:after {
+  content: "24 Hour";
+}
+
+#setting-hourmode .onoffswitch-label,
+#setting-hourmode .onoffswitch-switch {
+  border: 1px solid #18ab29;
+}
+
+#setting-hourmode .onoffswitch-inner:before {
+  background-color: #2ecc71;
+}
+
+/* rotation */
+#setting-rotation .onoffswitch-inner:before {
+  content: "Vertical";
+}
+
+#setting-rotation .onoffswitch-inner:after {
+  content: "Horizontal";
+}
+
+#setting-rotation .onoffswitch-label,
+#setting-rotation .onoffswitch-switch {
+  border: 1px solid #e28229;
+}
+
+#setting-rotation .onoffswitch-inner:before {
+  background-color: #ff9844;
+}
+
+/* buttonmode */
+#setting-buttonmode .onoffswitch-inner:before {
+  content: "Stopwatch";
+}
+
+#setting-buttonmode .onoffswitch-inner:after {
+  content: "Counter";
+}
+
+#setting-buttonmode .onoffswitch-label,
+#setting-buttonmode .onoffswitch-switch {
+  border: 1px solid #4497d1;
+}
+
+#setting-buttonmode .onoffswitch-inner:before {
+  background-color: #45adf5;
+}
+
+/* settings */
+#setting-counter {
+  margin-top: 50px;
+}
+
+#setting-buttonmode {
+  margin-bottom: 50px;
+}
+
+/* page header */
+.page-header {
+  width: 100%;
+  height: 65px;
+  font-size: 35px;
+  line-height: 65px;
+  background-color: #290000;
+  color: tomato;
+  text-align: center;
+}
+
+/* record-list */
+.record-list {
+  padding-left: 50px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.record-list li{
+  counter-increment: step-counter;
+
+}
+
+.record-list li::before {
+  content: counter(step-counter);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: rgb(0,200,200);
+  font-weight: bold;
+  padding: 1px 8px;
+  border-radius: 3px;
+}
+
+.record-box {
+  height: 225px;
+  font-size: 25px;
+  color: #eee;
+  overflow: scroll;
+  width: 260px;
+  margin: auto;
+}
+
+.summary {
+  color: #fff;
+  font-size: 23px;
+  padding-left: 90px;
+  padding-right: 70px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.summary span {
+  float: right;
+}
+
+/* navi button */
+.navi-button {
+  width: 60px;
+  height: 360px;
+  position: absolute;
+  top: 0;
+  background-size: 40px 90px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 999;
+}
+
+#background .navi-button {
+  opacity: 0.2;
+}
+
+.navi-button-left {
+  left: 0;
+  background-image: url(./left.png);
+}
+
+.navi-button-right {
+  right: 0;
+  background-image: url(./right.png);
+}

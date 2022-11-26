@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Tizen Wearable SimpleClock" />
+
+    <title>SimpleClock</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div id="container">
+		<div id="settings" class="view-box">
+			<div id="setting-counter" class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-setting-counter" data-type="counter">
+				<label class="onoffswitch-label" for="switch-setting-counter">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+
+			<div id="setting-hourmode" class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-setting-hourmode" data-type="24mode" checked>
+				<label class="onoffswitch-label" for="switch-setting-hourmode">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+
+			<div id="setting-rotation" class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-setting-rotation" data-type="rotation" checked>
+				<label class="onoffswitch-label" for="switch-setting-rotation">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+
+			<div class="onoffswitch-guide">
+				Button Mode
+			</div>
+			<div id="setting-buttonmode" class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-setting-buttonmode" data-type="buttonmode" checked>
+				<label class="onoffswitch-label" for="switch-setting-buttonmode">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+			<div class="navi-button navi-button-right" data-direction="right">
+			</div>
+		</div>
+        <div id="background" data-display="v" class="view-box">
+            <div id="touch-effect"></div>
+        	<div id="digital-watch-bg" data-state="watch">
+            	<div id="lock-icon" data-state="unlock"></div>
+	            <div id="digital-watch">
+	            	<div id="digital-date">
+	            		<div id="digital-day"><img id="digital-day-digit1" src="./image/3.png"><img id="digital-day-digit2" src="./image/0.png"></div>
+	            		<div id="digital-month"><img id="digital-month-digit1" src="./image/dot.png"><img id="digital-month-digit2" src="./image/apr.png"></div>
+	            		<div id="digital-year"><img id="digital-year-digit1" src="./image/1.png"><img id="digital-year-digit2" src="./image/9.png"><img id="digital-year-digit3" src="./image/8.png"><img id="digital-year-digit4" src="./image/1.png"></div>
+	            	</div>
+	            	<div id="digital-time">
+	            		<div id="digital-hour"><img id="digital-hour-digit1" src="./image/1.png"><img id="digital-hour-digit2" src="./image/2.png"></div>
+	            		<div id="digital-colon1"><img src="./image/dot.png"></div>
+	            		<div id="digital-minute"><img id="digital-minute-digit1" src="./image/5.png"><img id="digital-minute-digit2" src="./image/7.png"></div>
+	            		<div id="digital-colon2"><img src="./image/dot.png"></div>
+	            		<div id="digital-second"><img id="digital-second-digit1" src="./image/1.png"><img id="digital-second-digit2" src="./image/3.png"></div>
+	            	</div>
+	            </div>
+				<div id="digital-counter">
+					<div class="counter-box"><img id="digital-counter-digit1" src="./image/0.png"></div>
+					<div class="counter-box"><img id="digital-counter-digit2" src="./image/0.png"></div>
+					<div class="counter-box"><img id="digital-counter-digit3" src="./image/0.png"></div>
+					<div class="counter-box"><img id="digital-counter-digit4" src="./image/0.png"></div>
+					<div class="counter-box"><img id="digital-counter-digit5" src="./image/0.png"></div>
+				</div>
+			</div>
+            <div id="stopwatch">
+            	<div id="text-swatch">
+				    <div id="text-swatch-minute">00</div>
+				    <div id="text-swatch-colon">:</div>
+				    <div id="text-swatch-second">00</div>
+				    <div id="text-swatch-dot">.</div>
+				    <div id="text-swatch-msecond">00</div>
+				</div>
+			</div>
+			<div class="navi-button navi-button-left" data-direction="left">
+			</div>
+			<div class="navi-button navi-button-right" data-direction="right">
+			</div>
+		</div>
+		<div id="records" class="view-box">
+			<div class="page-header">
+				Records
+			</div>
+			<div class="summary">
+				<!-- <div>Count: <span class="count">0</span></div> -->
+				<div>Sum: <span class="sum">00:00.00</span></div>
+				<div>Avg: <span class="avg">00:00.00</span></div>
+			</div>
+			<div class="record-box">
+				<ol id="record-list" class="record-list">
+					<!-- <li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li>
+					<li>13:23:44</li> -->
+				</ol>
+				<div id="record-reset" class="button-box">
+					<span class="myButton button-record-reset">RESET</span>
+				</div>
+				<div id="launch-help" class="button-box">
+					<span class="myButton button-help">HELP</span>
+				</div>
+			</div>
+			<div class="navi-button navi-button-left" data-direction="left">
+			</div>
+		</div>
+    </div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
